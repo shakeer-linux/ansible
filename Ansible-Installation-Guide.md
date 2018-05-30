@@ -21,13 +21,13 @@ Make sure SSH package installed on both virtual machines or else install it.
 ```sh
 root@ansilbemaster:~# cat /etc/hosts
 127.0.0.1	localhost
-192.168.11.50	AnsilbeMaster
-192.168.11.51	AnsilbeSlave
+192.168.11.50	AnsilbeMaster master
+192.168.11.51	AnsilbeSlave  slave
 
 root@ansibleslave:~# cat /etc/hosts
 127.0.0.1	localhost
-192.168.11.50   AnsilbeMaster
-192.168.11.51   AnsilbeSlave
+192.168.11.50   AnsilbeMaster master
+192.168.11.51   AnsilbeSlave  slave
 ```
 On Both master and slave install below packages.
 
@@ -134,5 +134,44 @@ root@ansibleslave:~# exit
 logout
 Connection to 192.168.11.51 closed.
 root@ansilbemaster:~#
-
 ```
+
+*Configuring Ansible Hosts*
+
+Ansible uses by default file ***/etc/ansible/hosts*** directory to maintain record of all servers/slave nodes. we can also change default directory/file location of as per our requirements by changing default values in **/etc/ansible/ansible.cfg** file. 
+```sh
+
+root@ansilbemaster:/etc/ansible# ls
+ansible.cfg  hosts
+root@ansilbemaster:/etc/ansible#
+
+Example of ansible.cfg file
+
+root@ansilbemaster:/etc/ansible# vim ansible.cfg
+...
+[defaults]
+
+# some basic default values...
+
+hostfile       = /etc/ansible/hosts
+library        = /usr/share/ansible
+remote_tmp     = $HOME/.ansible/tmp
+pattern        = *
+forks          = 5
+poll_interval  = 15
+sudo_user      = root
+#ask_sudo_pass = True
+#ask_pass      = True
+transport      = smart
+remote_port    = 22
+...
+```
+
+
+
+***Ansible Basic Installation done node And Now run some Basic AD-HOC commands and Playbooks for practices.
+
+
+
+
+
