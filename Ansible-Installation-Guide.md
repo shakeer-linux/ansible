@@ -1,3 +1,11 @@
+**Ansible**
+Ansible is Configuration Management Tool, is an open-source automation engine that automates cloud provisioning, configuration management, and application deployment. Once installed on a control node, Ansible, which is an agentless architecture, connects to a managed node via SSH.
+
+
+Ansible Installation information can aslo be found [here]( 
+http://docs.ansible.com/ansible/intro_installation.html)
+
+
 
 **Please follow below procedure for ansible installation and some tasks**
 
@@ -5,7 +13,7 @@
 Take Two Ubuntu 14 VM’s.
 ```sh
 1. AnsibleMaster  --  IP 192.168.11.50
-2. AnsibleSlave   --  IP  192.168.11.51
+2. AnsibleSlave   --  IP 192.168.11.51
 ```
 
 Make sure SSH package installed on both virtual machines or else install it.
