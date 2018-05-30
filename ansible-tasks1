@@ -1,4 +1,4 @@
-As discuss, Below are the Ansible task to perform also find python script here #(https://github.com/shakeer-linux/ansible/blob/master/myscript.py) which will be needed while working on the task.
+Below are the Ansible task to perform also find python script here #(https://github.com/shakeer-linux/ansible/blob/master/myscript.py) which will be needed while working on the task.
  
 1. Write a playbook with the below conditions.
    - check if /etc/first file exists or not.
