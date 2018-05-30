@@ -136,7 +136,7 @@ Connection to 192.168.11.51 closed.
 root@ansilbemaster:~#
 ```
 
-*Configuring Ansible Hosts*
+**Configuring Ansible Hosts**
 
 Ansible uses by default file ***/etc/ansible/hosts*** directory to maintain record of all servers/slave nodes. we can also change default directory/file location of as per our requirements by changing default values in **/etc/ansible/ansible.cfg** file. 
 ```sh
@@ -166,10 +166,81 @@ transport      = smart
 remote_port    = 22
 ...
 ```
+Add your server information in /etc/ansible/hosts file with tags if required like.
+```sh
+root@ansilbemaster:/etc/ansible# vim hosts
+[all]
+192.168.11.51
+192.168.11.52
 
+[webserver]
+192.168.11.51
+
+[databaseserver]
+192.168.11.52
+```
 
 
 ***Ansible Basic Installation done node And Now run some Basic AD-HOC commands and Playbooks for practices.
+
+
+ping
+``
+root@ansilbemaster:/etc/ansible# ansible -m ping webserver
+192.168.11.51 | success >> {
+    "changed": false,
+    "ping": "pong"
+}
+
+root@ansilbemaster:/etc/ansible#
+``
+free
+```
+root@ansilbemaster:/etc/ansible# ansible -m shell -a 'free -m' webserver
+192.168.11.51 | success | rc=0 >>
+             total       used       free     shared    buffers     cached
+Mem:           992        502        490          0         23        405
+-/+ buffers/cache:         73        919
+Swap:         1019          0       1019
+```
+shell commands
+```
+root@ansilbemaster:/etc/ansible# ansible -m shell -a 'apt-get install -y tree' webserver
+192.168.11.51 | success | rc=0 >>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  tree
+0 upgraded, 1 newly installed, 0 to remove and 184 not upgraded.
+Need to get 37.8 kB of archives.
+After this operation, 109 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ trusty/universe tree amd64 1.6.0-1 [37.8 kB]
+Fetched 37.8 kB in 1s (32.4 kB/s)
+Selecting previously unselected package tree.
+(Reading database ... 60865 files and directories currently installed.)
+Preparing to unpack .../tree_1.6.0-1_amd64.deb ...
+Unpacking tree (1.6.0-1) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Setting up tree (1.6.0-1) ...
+
+root@ansilbemaster:/etc/ansible# ansible -m shell -a 'apt-get remove -y tree' webserver
+192.168.11.51 | success | rc=0 >>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be REMOVED:
+  tree
+0 upgraded, 0 newly installed, 1 to remove and 184 not upgraded.
+After this operation, 109 kB disk space will be freed.
+(Reading database ... 60872 files and directories currently installed.)
+Removing tree (1.6.0-1) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+
+root@ansilbemaster:/etc/ansible#
+```
+
+
 
 
 
