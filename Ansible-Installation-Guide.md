@@ -289,5 +289,5 @@ root@ansilbemaster:~# ansible all -m setup
 
 root@ansilbemaster:~#
 ```
-Do Some Basic Tasks for Best Practices using PlayBooks. Please [click here for tasks](https://github.com/shakeer-linux/ansible/blob/master/ansible-tasks1)
-]
+**Do Some Basic Tasks for Best Practices using PlayBooks.   
+Please [click here for tasks](https://github.com/shakeer-linux/ansible/blob/master/ansible-tasks1)**
