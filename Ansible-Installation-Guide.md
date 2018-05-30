@@ -70,8 +70,8 @@ The key's randomart image is:
 root@ansilbemaster:~#
 ```
 
-1st Method:  
-Execute below command. this will copy the Master node public key will copied into remote node/client node(in .ssh/authorized_keys)
+**1st Method:**  
+Execute below command. this will copy the Master node SSH Public key will copied into Slave/Client node(in .ssh/authorized_keys)
 ```sh
 root@ansilbemaster:~# ssh-copy-id root@192.168.11.51
 The authenticity of host '192.168.11.51 (192.168.11.51)' can't be established.
@@ -86,9 +86,29 @@ Number of key(s) added: 1
 Now try logging into the machine, with:   "ssh 'root@192.168.11.51'"
 and check to make sure that only the key(s) you wanted were added.
 ```
-2nd Method:  
-Copy public key of master node(.ssh/id_rsa.pub) manually into the Client/Slave node file(in .ssh/authorized_keys)
+**(OR)**
 
+
+**2nd Method:**  
+Copy SSH Public key of master node(.ssh/id_rsa.pub) manually into the Slave/Client node file (in .ssh/authorized_keys location)
+
+First copy the .ssh/id_rsa.pub file with scp command into remote/slave node in tmp directory. 
+```sh
+root@ansilbemaster:~# scp .ssh/id_rsa.pub root@192.168.11.51:/tmp
+root@192.168.11.51's password:
+id_rsa.pub                                                    100%  400     0.4KB/s   00:00
+root@ansilbemaster:
+```
+Then Go to the Salve node and Copy the id_rsa.pub file content from tmp directory to the .ssh/authorized_keys file.
+
+```sh
+root@ansibleslave:~# cat /tmp/id_rsa.pub >> .ssh/authorized_keys_test
+root@ansibleslave:~# cat .ssh/authorized_keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDrG7JQD2z8N90FRJ4+G40WllKc53nSPP9zua854u41tkvZnXToN24UOLOuQFbMNPtR/k+175b663qT+XxuyYbsmcMidMW46Twb/y3QaudxigryqkKzs9fDVflETg0vnKxQs4QRyaEMXmRv8pnXODIOSX8A/4m6CTn0lnyIT6h8usCQHSHIFlm4cpQ1kjYGcMiHKA9Fr33E+/vzUdJsBS4iZoGGYhWBSPsGVO8q8cP7nDcxfuP6o2VKAGFXWInTSWONOjHwfqRvyskDEaV3obfkro7Pd5iDUG69SYosnWdPnlghpZA4D4f5UsRUBs+LHjKCv4ckhZaaBjjijOtTEmwx root@ansilbemaster
+root@ansibleslave:~#
+```
+
+**Check/Validate** the password less authentication without giving password.
 ```sh
 root@ansilbemaster:~# ssh 192.168.11.51
 Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 4.4.0-31-generic x86_64)
