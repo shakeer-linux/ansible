@@ -1,0 +1,83 @@
+As discuss, below are the Ansible task to perform also find attached python script which will be needed while working on the task.
+ 
+1. Write a playbook with the below conditions.
+   - check if /etc/first file exists or not.
+   - if exists create a directory /etc/second
+   - copy /etc/first file to /etc/second directory and make sure file permission should be 755
+   - if file doesn’t exists create the file and in the same directory /etc/second with the permission 755.
+ 
+2. Add below lines in the /etc/second/first file using ansible playbook
+   - monitor com.pramati.system.info:/etc/hosts, “/etc/hosts”
+   - monitor com.pramati.system.info:/etc/services, “/etc/services”
+   - network_device_mtu= 1500
+ 
+3. Add and change the below parameter with the below condition in /etc/second/first file.
+    
+   Rquired changes in file:-
+    -  network_device_mtu= 20000
+    - [default]
+       I am an Automation engineer = True
+     - Find /etc/hosts as regexp and replace it with /etc/second.
+    Conditions:
+    - Makesure to take the backup of file
+     - Once changes done validate the above changes using playbook
+ 
+4.   Execute the attached python script using ansible playbook with the following condition.
+   - “python myscript.py first second”
+   - pass username and password as an extra vars.
+   - show and display the output of python script
+ 
+5. Execute the same python script and write playbook with the below condition.
+  - now it should ask user to enter the username and password
+  - show and display the output of python script.
+ 
+5. Execute the same python script and predefined variable.
+ 
+6. Create the multiple user on your machine using single task in the playbook
+      user name should be : swami, first, second, autom
+ 
+7. Write a playbook to create 4 to 5 files with the name which we will pass as an extra vars.
+ 
+8. Write a playbook to create 4 to 5 files with the name which we will ask user to enter. 
+ 
+ 
+
+1. Create the file /etc/automation and add the below lines.
+ 
+[admin]
+backend keystone-admin-api
+    balance roundrobin
+    server kstn01 192.168.27.137:35357 check inter 10s
+    server kstn02 192.168.27.138:35357 check inter 10s
+[public]
+backend keystone-public-api
+    balance roundrobin
+    server kstn01 192.168.27.137:5000 check inter 10s
+    server kstn02 192.168.27.138:5000 check inter 10s
+ 
+2. Add the following parameter into the same file. (Note: Make sure to take a backup with date and time stamp and validation for the changes)
+ 
+[admin]
+backend keystone-admin-api
+    balance roundrobin = timeout client 20s
+    timeout client 20s
+    server kstn01 192.168.27.137:35357 check inter 10s
+    server kstn02 192.168.27.138:35357 check inter 10s
+[public]
+backend keystone-public-api
+    balance roundrobin = timeout client 20s
+    timeout client 20s
+    server kstn01 192.168.27.137:5000 check inter 10s
+    server kstn02 192.168.27.138:5000 check inter 10s
+ 
+3. You have to check if tree package is installed on the machine or not. If not installed, then install. 
+ 
+4. You have to install APACHE2 package into your machine.
+     a) We need to check the available/candidate package version in repo.
+     b) Display the the installed and candidate version available.
+     c) If package is not available or installed the show/display the message (No available version need to install the package)
+     d) if package is already installed the show/display the message (Package is already installed trying to install available candidate version)
+     e) Need to take backup of current version, in case of revert
+      f) Need to restart apache service.
+     g) Verify the updated or Installed version.
+
