@@ -239,10 +239,55 @@ Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
 
 root@ansilbemaster:/etc/ansible#
 ```
+For Gathering FACTS
+```
+root@ansilbemaster:/etc/ansible# ansible all -m setup
+192.168.11.52 | FAILED => SSH encountered an unknown error during the connection. We recommend you re-run the command using -vvvv, which will enable SSH debugging output to help diagnose the issue
+192.168.11.51 | success >> {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "10.0.2.15",
+            "192.168.11.51",
+            "192.168.122.1"
+        ],
 
+...
+...
+...
+...
+...
+...
 
+        "ansible_swapfree_mb": 1019,
+        "ansible_swaptotal_mb": 1019,
+        "ansible_system": "Linux",
+        "ansible_system_vendor": "innotek GmbH",
+        "ansible_user_id": "root",
+        "ansible_userspace_architecture": "x86_64",
+        "ansible_userspace_bits": "64",
+        "ansible_virbr0": {
+            "active": false,
+            "device": "virbr0",
+            "id": "8000.000000000000",
+            "interfaces": [],
+            "ipv4": {
+                "address": "192.168.122.1",
+                "netmask": "255.255.255.0",
+                "network": "192.168.122.0"
+            },
+            "macaddress": "26:50:1c:8b:5f:19",
+            "mtu": 1500,
+            "promisc": false,
+            "stp": true,
+            "type": "bridge"
+        },
+        "ansible_virtualization_role": "guest",
+        "ansible_virtualization_type": "virtualbox"
+    },
+    "changed": false
+}
 
-
-
+root@ansilbemaster:/etc/ansible#
+```
 
 
