@@ -186,17 +186,17 @@ root@ansilbemaster:/etc/ansible# vim hosts
 
 ping
 ``
-root@ansilbemaster:/etc/ansible# ansible -m ping webserver
+root@ansilbemaster:~# ansible -m ping webserver
 192.168.11.51 | success >> {
     "changed": false,
     "ping": "pong"
 }
 
-root@ansilbemaster:/etc/ansible#
+root@ansilbemaster:~#
 ``
 free
 ```
-root@ansilbemaster:/etc/ansible# ansible -m shell -a 'free -m' webserver
+root@ansilbemaster:~# ansible -m shell -a 'free -m' webserver
 192.168.11.51 | success | rc=0 >>
              total       used       free     shared    buffers     cached
 Mem:           992        502        490          0         23        405
@@ -205,7 +205,7 @@ Swap:         1019          0       1019
 ```
 shell commands
 ```
-root@ansilbemaster:/etc/ansible# ansible -m shell -a 'apt-get install -y tree' webserver
+root@ansilbemaster:~# ansible -m shell -a 'apt-get install -y tree' webserver
 192.168.11.51 | success | rc=0 >>
 Reading package lists...
 Building dependency tree...
@@ -224,7 +224,7 @@ Unpacking tree (1.6.0-1) ...
 Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
 Setting up tree (1.6.0-1) ...
 
-root@ansilbemaster:/etc/ansible# ansible -m shell -a 'apt-get remove -y tree' webserver
+root@ansilbemaster:~# ansible -m shell -a 'apt-get remove -y tree' webserver
 192.168.11.51 | success | rc=0 >>
 Reading package lists...
 Building dependency tree...
@@ -237,11 +237,11 @@ After this operation, 109 kB disk space will be freed.
 Removing tree (1.6.0-1) ...
 Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
 
-root@ansilbemaster:/etc/ansible#
+root@ansilbemaster:~#
 ```
 For Gathering FACTS
 ```
-root@ansilbemaster:/etc/ansible# ansible all -m setup
+root@ansilbemaster:~# ansible all -m setup
 192.168.11.52 | FAILED => SSH encountered an unknown error during the connection. We recommend you re-run the command using -vvvv, which will enable SSH debugging output to help diagnose the issue
 192.168.11.51 | success >> {
     "ansible_facts": {
@@ -287,7 +287,7 @@ root@ansilbemaster:/etc/ansible# ansible all -m setup
     "changed": false
 }
 
-root@ansilbemaster:/etc/ansible#
+root@ansilbemaster:~#
 ```
 
 
