@@ -1,4 +1,4 @@
-**Ansible**
+**Ansible**     
 Ansible is Configuration Management Tool, is an open-source automation engine that automates cloud provisioning, configuration management, and application deployment. Once installed on a control node, Ansible, which is an agentless architecture, connects to a managed node via SSH.
 
 
