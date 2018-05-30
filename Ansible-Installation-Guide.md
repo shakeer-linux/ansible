@@ -5,8 +5,8 @@ Ansible Installation:
 
 Take Two Ubuntu 14 VM’s.
 ```sh
-1. AnsibleMaster  —  IP 192.168.11.50
-2. AnsibleSlave     — IP  192.168.11.51
+1. AnsibleMaster  --  IP 192.168.11.50
+2. AnsibleSlave   -- IP  192.168.11.51
 ```
 
 Make sure SSH installed on both virtual machines.
