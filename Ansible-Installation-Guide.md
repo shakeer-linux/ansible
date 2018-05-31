@@ -5,6 +5,58 @@ Ansible is Configuration Management Tool, is an open-source automation engine th
 Ansible Installation information can aslo be found [here]( 
 http://docs.ansible.com/ansible/intro_installation.html)
 
+Environment
+The following environment variables may specified.
+ANSIBLE_HOSTS - Override the default ansible hosts file
+ANSIBLE_LIBRARY - Override the default ansible module library path
+
+Files
+/etc/ansible/hosts - Default inventory file
+/usr/share/ansible/ - Default module library
+/etc/ansible/ansible.cfg - Config file, used if present
+~/.ansible.cfg - User config file, overrides the default config if present
+
+
+Options
+-v, --verbose
+Verbose mode, more output from successful actions will be shown. Give up to three times for more output.
+
+-i PATH, --inventory=PATH
+The PATH to the inventory hosts file, which defaults to /etc/ansible/hosts.
+
+-M DIRECTORY, --module-path=DIRECTORY
+The DIRECTORY to load modules from. The default is /usr/share/ansible.
+
+-e VARS, --extra-vars=VARS
+Extra variables to inject into a playbook, in key=value key=value format.
+
+-f NUM, --forks=NUM
+Level of parallelism. NUM is specified as an integer, the default is 5.
+
+-k, --ask-pass
+Prompt for the SSH password instead of assuming key-based authentication with ssh-agent.
+
+-K, --ask-sudo-pass
+Prompt for the password to use for playbook plays that request sudo access, if any.
+
+-U, SUDO_USER, --sudo-user=SUDO_USER
+Desired sudo user (default=root).
+
+-T SECONDS, --timeout=SECONDS
+Connection timeout to use when trying to talk to hosts, in SECONDS.
+
+-s, --sudo
+Force all plays to use sudo, even if not marked as such.
+
+-u USERNAME, --remote-user=USERNAME
+Use this remote user name on playbook steps that do not indicate a user name to run as.
+
+-c CONNECTION, --connection=CONNECTION
+Connection type to use. Possible options are paramiko (SSH), ssh, and local. local is mostly useful for crontab or kickstarts.
+
+-l SUBSET, --limit=SUBSET
+Further limits the selected host/group patterns.
+
 
 
 **Please follow below procedure for ansible installation and some tasks**
