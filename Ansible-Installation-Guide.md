@@ -1,3 +1,5 @@
+
+
 **Ansible**     
 Ansible is Configuration Management Tool, is an open-source automation engine that automates cloud provisioning, configuration management, and application deployment. Once installed on a control node, Ansible, which is an agentless architecture, connects to a managed node via SSH.
 
@@ -233,7 +235,7 @@ root@ansilbemaster:/etc/ansible# vim hosts
 ```
 
 ## AD-HOC
-***Ansible Basic Installation done node And Now run some Basic AD-HOC commands and Playbooks for practices.**
+**Ansible Basic Installation done node And Now run some Basic AD-HOC commands and Playbooks for practices.**
 
 
 ping
@@ -346,3 +348,6 @@ root@ansilbemaster:~#
 
 **Do Some Basic Tasks for Best Practices using PlayBooks.   
 Please [click here for tasks](https://github.com/shakeer-linux/ansible/blob/master/ansible-tasks1)**
+
+
+*https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
