@@ -51,7 +51,7 @@ apt-get install ansible
 ```
 **Setup SSH Keys**  
 
-Click **[here]**(https://github.com/shakeer-linux/ansible/blob/master/passwordless-ssh.md) to set up passwordless SSH authentication between Master to Slaves.
+Click **[here](https://github.com/shakeer-linux/ansible/blob/master/passwordless-ssh.md)** to set up passwordless SSH authentication between Master to Slaves.
 
 **Configuring Ansible Hosts**
 
