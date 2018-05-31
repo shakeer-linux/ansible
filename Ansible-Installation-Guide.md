@@ -98,10 +98,12 @@ root@ansilbemaster:/etc/ansible# vim hosts
 ```
 
 ## AD-HOC
-**Ansible Basic Installation done node And Now run some Basic AD-HOC commands and Playbooks for practices.**
 
+Ad-hoc commands in Ansible allow you to execute simple tasks at the command line against one or all of your hosts. MORE: How to Integrate Ansible and DSC. An ad-hoc command consists of two parameters; the host group that defines on what machines to run the task against and the Ansible module to run.
 
-ping
+***Run Some Basic AD-HOC commands here:***
+
+### ping
 ```
 root@ansilbemaster:~# ansible -m ping webserver
 192.168.11.51 | success >> {
@@ -112,7 +114,7 @@ root@ansilbemaster:~# ansible -m ping webserver
 root@ansilbemaster:~#
 ```
 
-free
+### free
 ```
 root@ansilbemaster:~# ansible -m shell -a 'free -m' webserver
 192.168.11.51 | success | rc=0 >>
@@ -121,7 +123,7 @@ Mem:           992        502        490          0         23        405
 -/+ buffers/cache:         73        919
 Swap:         1019          0       1019
 ```
-shell commands
+### some shell based commands
 ```
 root@ansilbemaster:~# ansible -m shell -a 'apt-get install -y tree' webserver
 192.168.11.51 | success | rc=0 >>
@@ -157,7 +159,8 @@ Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
 
 root@ansilbemaster:~#
 ```
-For Gathering FACTS
+
+#### For Gathering FACTS
 ```
 root@ansilbemaster:~# ansible all -m setup
 192.168.11.52 | FAILED => SSH encountered an unknown error during the connection. We recommend you re-run the command using -vvvv, which will enable SSH debugging output to help diagnose the issue
@@ -332,6 +335,7 @@ Use this remote user name on playbook steps that do not indicate a user name to 
 Connection type to use. Possible options are paramiko (SSH), ssh, and local. local is mostly useful for crontab or kickstarts.   
 
 ***-l SUBSET, --limit=SUBSET***     
-
 Further limits the selected host/group patterns.  
+
+
 *https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet*
