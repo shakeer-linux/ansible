@@ -402,9 +402,27 @@ apt: specifies the module we want to use
 
 name: is an argument to the apt module, that specifies the name of the package to install.
 ```
+```
+The apt module allows you to specify the state you wish the package to be in. If you want a specific version, you append it to the package name, 
 
-**Do Some Basic Tasks for Best Practices using PlayBooks.   
-Please [click here for tasks](https://github.com/shakeer-linux/ansible/blob/master/ansible-tasks1)**
+for example:
+- name: ensure sysstat is installed at version 10.2.0-1
+  apt:
+    name: sysstat=10.2.0-1
+    state: installed
+```
+```
+If you want to ensure that the package is not installed, you can declare that with state: absent, and Ansible will ensure it.
+
+for example:
+- name: ensure sysstat is removed
+  apt:
+    name: sysstat
+    state: absent
+
+```
+
+**Do Basic Tasks here for Best practices using PlayBooks. [Click here] (https://github.com/shakeer-linux/ansible/blob/master/ansible-tasks1) for tasks**
 
 
 *https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet*
