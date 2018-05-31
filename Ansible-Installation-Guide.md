@@ -232,8 +232,8 @@ root@ansilbemaster:/etc/ansible# vim hosts
 192.168.11.52
 ```
 
-
-***Ansible Basic Installation done node And Now run some Basic AD-HOC commands and Playbooks for practices.
+## AD-HOC
+***Ansible Basic Installation done node And Now run some Basic AD-HOC commands and Playbooks for practices.**
 
 
 ping
