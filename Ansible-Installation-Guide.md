@@ -7,12 +7,12 @@ Ansible is Configuration Management Tool, is an open-source automation engine th
 Ansible Installation information can aslo be found [here]( 
 http://docs.ansible.com/ansible/intro_installation.html)
 
-*Environment*     
+***Environment***     
 The following environment variables may specified.   
 ANSIBLE_HOSTS - Override the default ansible hosts file   
 ANSIBLE_LIBRARY - Override the default ansible module library path    
 
-Files        
+***Files***        
 /etc/ansible/hosts - Default inventory file .   
 /usr/share/ansible/ - Default module library .   
 /etc/ansible/ansible.cfg - Config file, used if present .  
@@ -20,43 +20,43 @@ Files
 
 
 Options        
--v, --verbose       
+***-v, --verbose***       
 Verbose mode, more output from successful actions will be shown. Give up to three times for more output.   
 
--i PATH, --inventory=PATH   
+***-i PATH, --inventory=PATH***   
 The PATH to the inventory hosts file, which defaults to /etc/ansible/hosts.  
 
--M DIRECTORY, --module-path=DIRECTORY   
+***-M DIRECTORY, --module-path=DIRECTORY***   
 The DIRECTORY to load modules from. The default is /usr/share/ansible.  
 
--e VARS, --extra-vars=VARS    
+***-e VARS, --extra-vars=VARS***    
 Extra variables to inject into a playbook, in key=value key=value format.   
 
--f NUM, --forks=NUM     
+***-f NUM, --forks=NUM***     
 Level of parallelism. NUM  is specified as an integer, the default is 5.   
 
--k, --ask-pass    
+***-k, --ask-pass***    
 Prompt for the SSH password instead of assuming key-based authentication with ssh-agent.   
 
--K, --ask-sudo-pass     
+***-K, --ask-sudo-pass***     
 Prompt for the password to use for playbook plays that request sudo access, if any.   
 
--U, SUDO_USER, --sudo-user=SUDO_USER      
+***-U, SUDO_USER, --sudo-user=SUDO_USER***      
 Desired sudo user (default=root).   
 
--T SECONDS, --timeout=SECONDS     
+***-T SECONDS, --timeout=SECONDS***     
 Connection timeout to use when trying to talk to hosts, in SECONDS.   
 
--s, --sudo    
+***-s, --sudo***    
 Force all plays to use sudo, even if not marked as such.   
 
--u USERNAME, --remote-user=USERNAME     
+***-u USERNAME, --remote-user=USERNAME***     
 Use this remote user name on playbook steps that do not indicate a user name to run as.   
 
--c CONNECTION, --connection=CONNECTION     
+***-c CONNECTION, --connection=CONNECTION***     
 Connection type to use. Possible options are paramiko (SSH), ssh, and local. local is mostly useful for crontab or kickstarts.   
 
--l SUBSET, --limit=SUBSET     
+***-l SUBSET, --limit=SUBSET***     
 Further limits the selected host/group patterns.  
 
 
@@ -156,7 +156,7 @@ root@ansilbemaster:
 Then Go to the Salve node and Copy the id_rsa.pub file content from tmp directory to the .ssh/authorized_keys file.
 
 ```sh
-root@ansibleslave:~# cat /tmp/id_rsa.pub >> .ssh/authorized_keys_test
+root@ansibleslave:~# cat /tmp/id_rsa.pub >> .ssh/authorized_keys
 root@ansibleslave:~# cat .ssh/authorized_keys
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDrG7JQD2z8N90FRJ4+G40WllKc53nSPP9zua854u41tkvZnXToN24UOLOuQFbMNPtR/k+175b663qT+XxuyYbsmcMidMW46Twb/y3QaudxigryqkKzs9fDVflETg0vnKxQs4QRyaEMXmRv8pnXODIOSX8A/4m6CTn0lnyIT6h8usCQHSHIFlm4cpQ1kjYGcMiHKA9Fr33E+/vzUdJsBS4iZoGGYhWBSPsGVO8q8cP7nDcxfuP6o2VKAGFXWInTSWONOjHwfqRvyskDEaV3obfkro7Pd5iDUG69SYosnWdPnlghpZA4D4f5UsRUBs+LHjKCv4ckhZaaBjjijOtTEmwx root@ansilbemaster
 root@ansibleslave:~#
@@ -358,14 +358,12 @@ Below playbook runs one task, on our one host, host01. Note the indentation - it
 cat site.yml
 
 ---
-- hosts: host01
-  become: true
+- hosts: webserver
   tasks:
     - name: ensure latest sysstat is installed
       apt:
         name: sysstat
         state: latest
-The above code is already in a file called site.yml. Let's check the contents:
 ```
 
 
@@ -409,4 +407,4 @@ name: is an argument to the apt module, that specifies the name of the package t
 Please [click here for tasks](https://github.com/shakeer-linux/ansible/blob/master/ansible-tasks1)**
 
 
-*https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+*https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet*
