@@ -60,7 +60,7 @@ Connection type to use. Possible options are paramiko (SSH), ssh, and local. loc
 Further limits the selected host/group patterns.  
 
 
-
+## Ansible Installation
 **Please follow below procedure for ansible installation and some tasks**
 
 
