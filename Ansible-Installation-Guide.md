@@ -51,7 +51,7 @@ apt-get install ansible
 ```
 **Setup SSH Keys**  
 
-Click **[here](https://github.com/shakeer-linux/ansible/blob/master/passwordless-ssh.md)** to set up passwordless SSH authentication between Master to Slaves.
+**[Click Here](https://github.com/shakeer-linux/ansible/blob/master/passwordless-ssh.md)** to set up passwordless SSH authentication between Master to Slaves.
 
 **Configuring Ansible Hosts**
 
@@ -99,22 +99,23 @@ root@ansilbemaster:/etc/ansible# vim hosts
 
 ## AD-HOC
 
-Ad-hoc commands in Ansible allow you to execute simple tasks at the command line against one or all of your hosts. MORE: How to Integrate Ansible and DSC. An ad-hoc command consists of two parameters; the host group that defines on what machines to run the task against and the Ansible module to run.
+Ad-hoc commands in Ansible allow you to execute simple tasks at the command line against one or all of your hosts.    
+
+An ad-hoc command consists of two parameters; the host group that defines on what machines to run the task against and the Ansible module to run.  
 
 ***Run Some Basic AD-HOC commands here:***
 
-### ping
+#### ping
 ```
 root@ansilbemaster:~# ansible -m ping webserver
 192.168.11.51 | success >> {
     "changed": false,
     "ping": "pong"
 }
-
 root@ansilbemaster:~#
 ```
 
-### free
+#### free
 ```
 root@ansilbemaster:~# ansible -m shell -a 'free -m' webserver
 192.168.11.51 | success | rc=0 >>
@@ -122,8 +123,10 @@ root@ansilbemaster:~# ansible -m shell -a 'free -m' webserver
 Mem:           992        502        490          0         23        405
 -/+ buffers/cache:         73        919
 Swap:         1019          0       1019
+root@ansilbemaster:~#
 ```
-### some shell based commands
+
+Some **shell** based commands
 ```
 root@ansilbemaster:~# ansible -m shell -a 'apt-get install -y tree' webserver
 192.168.11.51 | success | rc=0 >>
