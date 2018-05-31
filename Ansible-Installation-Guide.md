@@ -1,6 +1,6 @@
 
 
-**Ansible**     
+# Ansible
 Ansible is Configuration Management Tool, is an open-source automation engine that automates cloud provisioning, configuration management, and application deployment. Once installed on a control node, Ansible, which is an agentless architecture, connects to a managed node via SSH.
 
 
@@ -345,6 +345,47 @@ root@ansilbemaster:~#
 ```
 ## Ansible Playbook
 
+*Running a playbook*   
+**Playbook**  :  A playbook is an entirely different way of running Ansible, that is far more powerful.
+
+What is a **play**?   
+A play is a set of tasks mapped to a set of hosts. Plays are organised inside a text file called a playbook.
+
+**Running a playbook**    
+Below playbook runs one task, on our one host, host01. Note the indentation - it's important for how the file gets parsed. Blank lines are ignored, but makes the playbook more readable for humans.
+
+```
+cat site.yml
+
+---
+- hosts: host01
+  become: true
+  tasks:
+    - name: ensure latest sysstat is installed
+      apt:
+        name: sysstat
+        state: latest
+The above code is already in a file called site.yml. Let's check the contents:
+```
+
+
+**To run the playbook**, use the **ansible-playbook** command with the inventory file myhosts:
+```
+ansible-playbook -i myhosts site.yml
+```
+Ansible should return the result 'Changed=1', indicating that the package was installed.
+
+Playbook breakdown
+What happened here?
+```
+--- denotes the beginning of a YAML file
+hosts: host tells Ansible to run the tasks on the host host
+become: true makes all your tasks run as sudo
+- name: is basically a comment, describing what the task does
+apt: specifies the module we want to use
+name: is an argument to the apt module, that specifies the name of the package to install.
+To see all arguments for a specific module, allowed values, and other details, you can use the CLI documentation that is included with Ansible:
+```
 
 **Do Some Basic Tasks for Best Practices using PlayBooks.   
 Please [click here for tasks](https://github.com/shakeer-linux/ansible/blob/master/ansible-tasks1)**
