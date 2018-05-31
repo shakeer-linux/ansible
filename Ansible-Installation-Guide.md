@@ -373,18 +373,36 @@ The above code is already in a file called site.yml. Let's check the contents:
 ```
 ansible-playbook -i myhosts site.yml
 ```
+```
+root@ansilbemaster:~/playbook# ansible-playbook site.yaml
+
+PLAY [webserver] **************************************************************
+
+GATHERING FACTS ***************************************************************
+ok: [192.168.11.51]
+
+TASK: [ensure latest sysstat is installed] ************************************
+changed: [192.168.11.51]
+
+PLAY RECAP ********************************************************************
+192.168.11.51              : ok=2    changed=1    unreachable=0    failed=0
+
+root@ansilbemaster:~/playbook#
+```
+
 Ansible should return the result 'Changed=1', indicating that the package was installed.
 
 Playbook breakdown
 What happened here?
 ```
 --- denotes the beginning of a YAML file
-hosts: host tells Ansible to run the tasks on the host host
-become: true makes all your tasks run as sudo
-- name: is basically a comment, describing what the task does
-apt: specifies the module we want to use
+hosts: host tells Ansible to run the tasks on the host host    
+
+- name: is basically a comment, describing what the task does   
+
+apt: specifies the module we want to use   
+
 name: is an argument to the apt module, that specifies the name of the package to install.
-To see all arguments for a specific module, allowed values, and other details, you can use the CLI documentation that is included with Ansible:
 ```
 
 **Do Some Basic Tasks for Best Practices using PlayBooks.   
